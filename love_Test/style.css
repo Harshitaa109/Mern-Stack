@@ -1,0 +1,69 @@
+.heart {
+    font-size: 150px;
+    text-align: center;
+    color: red;
+}
+.heart:hover {
+    color: pink;
+    transform: scale(1.2);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffe6f0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ff3366;
+}
+
+h2 {
+    color: #333;
+}
+
+.option-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.option-button:hover {
+    background-color: #cc0044;
+}
+
+#resultButton {
+    padding: 10px 20px;
+    background-color: #3366ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#resultButton:hover {
+    background-color: #003399;
+}

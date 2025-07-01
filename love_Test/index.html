@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Love Test</h1>
+        <p>Do You Really Know Her?</p>
+        <div class="heart">❤️</div>
+
+        <label for="name1">Your Name:</label>
+        <input type="text" id="name1" name="name1" required>
+        <br><br> <!-- Adds two line breaks -->
+
+        <label for="name2">Partner's Name:</label>
+        <input type="text" id="name2" name="name2" required>
+
+        <p class="description">Are you the hero of her life or the villain? Find out now!</p>
+
+        <button type="button" onclick="startTest()">Start the Test</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function startTest() {
+            const name1 = document.getElementById('name1').value.trim();
+            const name2 = document.getElementById('name2').value.trim();
+
+            if (name1 === "" || name2 === "") {
+                alert("Please fill both names to start the test!");
+                return;
+            }
+
+            // Optionally store names for later use in result.html
+            localStorage.setItem('yourName', name1);
+            localStorage.setItem('partnerName', name2);
+
+            window.location.href = "quiz.html";
+        }
+    </script>
+</body>
+</html>

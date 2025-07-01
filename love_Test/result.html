@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Test Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="heart" class="heart"></div>
+        <h1 id="result-title">Loading...</h1>
+        <p id="result-message"></p>
+
+        <!-- Reason Display Section -->
+        <div id="reason-section" style="display:none;">
+            <button onclick="showReason()">Wanna know why you failed?</button>
+            <p id="reason-text"></p>
+        </div>
+
+        <button onclick="restart()">Try Again</button>
+    </div>
+
+    <script>
+        const score = localStorage.getItem('quizScore');
+        const total = localStorage.getItem('totalQuestions');
+
+        const heart = document.getElementById('heart');
+        const resultTitle = document.getElementById('result-title');
+        const resultMessage = document.getElementById('result-message');
+        const reasonSection = document.getElementById('reason-section');
+        const reasonText = document.getElementById('reason-text');
+
+        const reasons = [
+            "She deserves effort, not excuses.",
+            "A queen like her can’t wait for someone who never shows up.",
+            "She’s not someone you figure out later — you either get it now or lose her forever.",
+            "She needs someone who matches her energy, not drains it.",
+            "A girl like her deserves consistency, not confusion.",
+            "She’s not made for half-love, half-effort.",
+            "She’s not here to teach you how to love her — you should’ve known.",
+            "She’s meant for a man, not a maybe.",
+            "She deserves spontaneous dates, forehead kisses, and someone who remembers the way she orders coffee.",
+            "She deserves someone who takes pictures of her randomly because they adore her, not someone who forgets her face in the crowd."
+        ];
+
+        const threshold = Math.floor(total * 0.98); // Pass if 60% or more
+
+        if (score >= threshold) {
+            // Passed
+            heart.innerText = "❤️";
+            resultTitle.innerText = "Congratulations! You won her heart.";
+            resultMessage.innerText = `You scored ${score} out of ${total}. You're truly someone who knows her!`;
+        } else {
+            // Failed
+            heart.innerText = "💔";
+            resultTitle.innerText = "Oops... You're the villain of her life.";
+            resultMessage.innerText = `You scored ${score} out of ${total}.`;
+
+            // Show the 'Wanna know why you failed?' button
+            reasonSection.style.display = "block";
+        }
+
+        function showReason() {
+            const randomReason = reasons[Math.floor(Math.random() * reasons.length)];
+            reasonText.innerText = randomReason;
+        }
+
+        function restart() {
+            localStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
