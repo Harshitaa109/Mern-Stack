@@ -1,9 +1,9 @@
 {
   "name": "day11",
   "private": true,
-  "homepage": "https://harshitaa109.github.io/Mern-stack/StopWatch_App"
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://harshitaa109.github.io/Mern-stack/StopWatch_App"
   "scripts": {
   "dev": "vite",
   "build": "vite build",
