@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YouTube Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container {
+            display: flex;
+            width: 60%;
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 20px 0 0 20px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-radius: 0 20px 20px 0;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+
+        button::before {
+            content: "🔍";
+            font-size: 16px;
+        }
+
+        #search-suggestions {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 0 0 8px 8px;
+        }
+
+        #search-suggestions p {
+            margin: 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #search-suggestions p:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="search-container">
+            <input type="text" name="search-text" oninput="handleSearchSuggestionSmart(event)" placeholder="Search YouTube...">
+            <button></button>
+            <div id="search-suggestions"></div>
+        </div>
+    </header>
+
+    <!-- This must come AFTER the input -->
+    <script src="index.js"></script>
+</body>
+
+</html>

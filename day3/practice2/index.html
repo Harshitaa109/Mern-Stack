@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🍴 Recipe Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #1b1b1c;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    #homeBtn {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      background-color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      color: #333;
+    }
+
+    #recipeList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 30px;
+    }
+
+    .recipe-card {
+      background-color: white;
+      border-radius: 12px;
+      width: 300px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.03);
+    }
+
+    .recipe-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .recipe-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      background-color: #fafafa;
+    }
+
+    
+
+    .rating-box {
+      background-color: #28a745;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .cuisine-box {
+      background-color: #007bff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .order-btn {
+      padding: 10px 15px;
+      background-color: #dd7e48d1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px auto;
+      display: block;
+    }
+
+    /* Popup styles */
+    #popupCard {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 999;
+    }
+
+    .popup-button {
+      padding: 10px 20px;
+      background: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      #recipeList {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button id="homeBtn" onclick="location.reload()">Home</button>
+    <h2>🍴 Recipe Store</h2>
+  </header>
+
+  <div id="recipeList"></div>
+
+  <!-- Popup Message -->
+  <div id="popupCard">
+    <h3>🎉 Congratulations!</h3>
+    <p>You got a good deal. It will be delivered soon. Enjoy your meal!</p>
+    <button class="popup-button" onclick="closePopup()">Close</button>
+  </div>
+  <div id="overlay" onclick="closePopup()"></div>
+
+  <!-- JavaScript Logic -->
+  <script src="app.js"></script>
+  <script>
+    function showPopup() {
+      document.getElementById("popupCard").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popupCard").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

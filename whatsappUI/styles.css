@@ -1,0 +1,101 @@
+/* Reset and base setup */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid layout: left menu | chat list | message view */
+#whatsapp-web-root {
+    display: grid;
+    grid-template-columns: 100px 1fr 0fr;
+    height: 100vh;
+}
+
+/* Left vertical menu */
+#left-menu {
+    padding: 1rem 0;
+    background-color: #202c33; /* WhatsApp dark sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    color: white;
+}
+
+/* Font Awesome icons inside left menu */
+#left-menu i.icon {
+    height: 48px;
+    width: 48px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for icons */
+#left-menu i.icon:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Chat list panel */
+
+#chat-list {
+    background-color: #f0f2f5;
+}
+
+/* Right panel: welcome message */
+#chat-messages-container {
+    background-color: #cfd2d3;
+    display: none;
+}
+
+/* Shown on large screens */
+@media (width >= 768px) {
+    #whatsapp-web-root {
+        grid-template-columns: 100px 460px 1fr;
+    }
+
+    #chat-messages-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .whatsapp-mac-title {
+        position: relative;
+        top: -3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: grey;
+        text-align: center;
+    }
+}
+
+/* Optional: tooltip style if you want custom tooltips later */
+/*
+#left-menu i.icon::after {
+    content: attr(title);
+    position: absolute;
+    left: 110%;
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#left-menu i.icon:hover::after {
+    opacity: 1;
+}
+*/
