@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://harshitaa109.github.io/Mern-stack/StopWatch_App"
+  "homepage": "https://harshitaa109.github.io/Mern-stack/StopWatch_App",
   "scripts": {
   "dev": "vite",
   "build": "vite build",
