@@ -11,8 +11,6 @@ const App = () => {
             intervalRef.current = setInterval(() => {
                 setTimeInSec((prev) => prev + 1);
             }, 1000);
-        } else {
-            clearInterval(intervalRef.current);
         }
 
         return () => clearInterval(intervalRef.current);
@@ -25,6 +23,7 @@ const App = () => {
         setIsTimerRunning(false);
         setTimeInSec(0);
         setLaps([]);
+        clearInterval(intervalRef.current);
     };
 
     const handleLap = () => {
@@ -36,7 +35,7 @@ const App = () => {
             .toString()
             .padStart(2, "0");
         const secs = (seconds % 60).toString().padStart(2, "0");
-        return `00:${mins}:${secs}`;
+        return `${mins}:${secs}`;
     };
 
     return (
@@ -48,6 +47,7 @@ const App = () => {
                 justifyContent: "center",
                 minHeight: "100vh",
                 backgroundColor: "#f4f4f4",
+                fontFamily: "sans-serif",
             }}
         >
             <h1>Stopwatch</h1>
